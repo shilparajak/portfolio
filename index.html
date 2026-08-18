@@ -171,8 +171,9 @@
   .contact-h em{font-style:italic}
 
   /* ---------- Reveal ---------- */
-  .reveal{opacity:0;transform:translateY(16px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
-  .reveal.in{opacity:1;transform:none}
+  .reveal{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  html.js-anim .reveal{opacity:0;transform:translateY(16px)}
+  html.js-anim .reveal.in{opacity:1;transform:none}
 
   /* ---------- Focus ---------- */
   a:focus-visible,button:focus-visible,[tabindex]:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:4px}
@@ -300,11 +301,11 @@
 
       <div class="work" style="margin-top:30px">
 
-        <a class="proj reveal" href="https://medium.com/@shilparaj47/todays-top-picks-61fa1e2b6de5" target="_blank" rel="noopener">
+        <a class="proj reveal" href="todays-top-picks.html">
           <div class="proj-top">
             <div>
               <div class="meta">In-app purchase · Research</div>
-              <h3>Crossword — Trending Section</h3>
+              <h3>Today's Top Picks — Crossword</h3>
             </div>
             <svg class="arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
           </div>
@@ -315,7 +316,7 @@
             <span class="metric"><b>600k</b> daily engaged</span>
             <span class="metric"><b>↑</b> completion rate</span>
           </div>
-          <span class="readmore">Read the full case study on Medium <u>→</u></span>
+          <span class="readmore">Read the full case study <u>→</u></span>
         </a>
 
         <div class="proj reveal">
@@ -521,15 +522,20 @@
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Reveal on scroll
+  // Reveal on scroll. Content is visible by default; only hide-then-animate when
+  // JS + IntersectionObserver are live, so nothing can get stuck invisible.
   var revs = [].slice.call(document.querySelectorAll('.reveal'));
-  if(reduce || !('IntersectionObserver' in window)){
-    revs.forEach(function(el){el.classList.add('in');});
-  } else {
+  if(!reduce && 'IntersectionObserver' in window){
+    document.documentElement.classList.add('js-anim');
     var ro = new IntersectionObserver(function(entries){
       entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
-    }, {rootMargin:'0px 0px -8% 0px', threshold:0.08});
+    }, {rootMargin:'0px 0px -6% 0px', threshold:0.04});
     revs.forEach(function(el){ro.observe(el);});
+    // backup to IO: reveal anything in view on load/scroll/resize (guarantees nothing sticks hidden)
+    function safety(){var vh=window.innerHeight;revs.forEach(function(e){if(!e.classList.contains('in') && e.getBoundingClientRect().top<vh){e.classList.add('in');}});}
+    window.addEventListener('load', function(){setTimeout(safety,300);});
+    window.addEventListener('scroll', safety, {passive:true});
+    window.addEventListener('resize', safety);
   }
 
   // Active-section nav highlight

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Today's Top Picks — Case Study · Shilpa Rajak</title>
+<meta name="description" content="Case study: 'Today's Top Picks' — a personalised puzzle section that lifted engagement on Daily Themed Crossword (10M+ downloads, 600k+ DAU). By Shilpa Rajak.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..500&family=Inter:wght@400;450;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F5F3ED;--paper-2:#FBFAF6;--ink:#1B1A16;--ink-soft:#4C4940;--muted:#6C685E;
+    --line:#E2DDD1;--line-strong:#D3CCBD;--accent:#B24A31;--accent-soft:#F0E2DA;
+    --radius:16px;--sidebar:288px;--maxcol:720px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--paper);color:var(--ink);font-family:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--accent);color:#fff}
+  .serif{font-family:'Fraunces',Georgia,serif;font-optical-sizing:auto}
+
+  .shell{display:flex;max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,56px)}
+  aside{width:var(--sidebar);flex:none;position:sticky;top:0;align-self:flex-start;height:100vh;display:flex;flex-direction:column;padding:44px 40px 34px 0;border-right:1px solid var(--line)}
+  main{flex:1;min-width:0;padding:44px 0 64px clamp(28px,4vw,64px);max-width:calc(var(--maxcol) + 64px)}
+
+  .mark{display:flex;align-items:center;gap:12px;margin-bottom:26px}
+  .mark svg{width:46px;height:46px;flex:none}
+  .mark .who{line-height:1.2}
+  .mark .who b{font-weight:600;font-size:15px;letter-spacing:-.01em;display:block}
+  .mark .who span{font-size:12.5px;color:var(--muted)}
+  .back{display:inline-flex;align-items:center;gap:8px;font-size:13.5px;color:var(--ink-soft);margin-bottom:34px;transition:color .18s,gap .18s}
+  .back:hover{color:var(--accent);gap:11px}
+  .navhead{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:14px}
+  nav.side{display:flex;flex-direction:column;gap:2px}
+  nav.side a{display:flex;align-items:center;gap:11px;font-size:14.5px;color:var(--ink-soft);padding:5px 0;transition:color .18s}
+  nav.side a .dot{width:16px;height:1px;background:var(--line-strong);transition:width .22s,background .22s}
+  nav.side a:hover{color:var(--ink)}
+  nav.side a.active{color:var(--ink);font-weight:500}
+  nav.side a.active .dot{width:26px;background:var(--accent)}
+  .side-foot{margin-top:auto;padding-top:28px;font-size:12.5px;line-height:1.9;color:var(--muted)}
+  .side-foot b{color:var(--ink-soft);font-weight:500}
+  .side-foot a{color:var(--accent)}
+
+  .eyebrow{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  h1.title{font-weight:500;font-size:clamp(38px,6vw,60px);line-height:1;letter-spacing:-.02em;margin:16px 0 0}
+  .subtitle{font-size:clamp(18px,2.3vw,21px);line-height:1.4;color:var(--ink-soft);margin-top:18px;max-width:36ch}
+  .subtitle em{font-style:italic;color:var(--ink)}
+
+  .facts-row{display:flex;flex-wrap:wrap;gap:26px 40px;margin-top:28px}
+  .fact b{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:5px}
+  .fact span{font-size:14.5px;color:var(--ink)}
+
+  .stat-chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .chip{display:inline-flex;align-items:baseline;gap:7px;border:1px solid var(--line-strong);background:var(--paper-2);border-radius:999px;padding:8px 15px}
+  .chip b{font-size:15px;font-weight:600;font-family:'Fraunces',serif}
+  .chip span{font-size:12.5px;color:var(--muted)}
+
+  section{scroll-margin-top:36px}
+  section + section{margin-top:clamp(52px,7vw,80px)}
+  .rule{height:1px;background:var(--line);border:0;margin:clamp(36px,5vw,52px) 0}
+  .sec-num{font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);font-weight:600}
+  h2.sec{font-weight:500;font-size:clamp(26px,3.6vw,36px);line-height:1.1;letter-spacing:-.015em;margin:12px 0 0}
+  p.body{color:var(--ink-soft);font-size:16.5px;line-height:1.75;margin-top:18px;max-width:64ch}
+  p.body + p.body{margin-top:14px}
+  .ink{color:var(--ink);font-weight:500}
+  strong{font-weight:600;color:var(--ink)}
+
+  /* figure frame */
+  figure.fig{margin-top:28px;border:1px solid var(--line);background:var(--paper-2);border-radius:var(--radius);overflow:hidden}
+  figure.fig .fig-bar{display:flex;align-items:center;gap:8px;padding:11px 16px;border-bottom:1px solid var(--line)}
+  figure.fig .fig-bar i{width:8px;height:8px;border-radius:50%;background:var(--line-strong);display:inline-block}
+  figure.fig .fig-bar .lbl{margin-left:6px;font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  figure.fig img{display:block;width:100%;height:auto;background:#fff}
+  figure.fig figcaption{padding:12px 16px;font-size:13px;color:var(--muted);border-top:1px solid var(--line);font-style:italic}
+
+  /* pull quote */
+  .quote{margin-top:28px;padding:22px 26px;border-left:3px solid var(--accent);background:var(--paper-2);border-radius:0 var(--radius) var(--radius) 0}
+  .quote p{font-family:'Fraunces',serif;font-size:19px;line-height:1.45;color:var(--ink);font-style:italic}
+
+  /* native engagement chart */
+  .viz{margin-top:26px;border:1px solid var(--line);background:var(--paper-2);border-radius:var(--radius);padding:24px 26px}
+  .viz h4{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:20px}
+  .bar-row{display:grid;grid-template-columns:150px 1fr 56px;align-items:center;gap:14px;margin:13px 0}
+  .bar-row .bl{font-size:14px;color:var(--ink)}
+  .bar-track{height:14px;border-radius:999px;background:#EBE6DA;overflow:hidden}
+  .bar-fill{height:100%;border-radius:999px;background:var(--ink)}
+  .bar-fill.accent{background:var(--accent)}
+  .bar-val{font-family:'Fraunces',serif;font-weight:600;font-size:16px;text-align:right}
+  .viz .foot{margin-top:16px;font-size:12.5px;color:var(--muted);font-style:italic}
+
+  .decay{display:flex;align-items:center;gap:14px;margin-top:20px;flex-wrap:wrap}
+  .decay .step{border:1px solid var(--line-strong);background:var(--paper-2);border-radius:12px;padding:12px 16px;text-align:center;min-width:96px}
+  .decay .step b{display:block;font-family:'Fraunces',serif;font-size:22px;font-weight:600}
+  .decay .step span{font-size:11.5px;color:var(--muted)}
+  .decay .to{color:var(--muted)}
+
+  /* list */
+  ul.clean{margin-top:20px;list-style:none;display:flex;flex-direction:column;gap:14px;max-width:64ch}
+  ul.clean li{position:relative;padding-left:26px;color:var(--ink-soft);font-size:16px;line-height:1.6}
+  ul.clean li::before{content:"";position:absolute;left:2px;top:9px;width:7px;height:7px;border-radius:50%;border:1.5px solid var(--accent)}
+  ul.clean li strong{color:var(--ink)}
+
+  /* principles grid */
+  .princ{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:24px}
+  .princ .p{border:1px solid var(--line);background:var(--paper-2);border-radius:var(--radius);padding:18px 20px}
+  .princ .p b{font-weight:600;font-size:15.5px;display:block;margin-bottom:6px}
+  .princ .p span{font-size:13.5px;color:var(--muted);line-height:1.55}
+
+  .callout{margin-top:26px;border:1px solid var(--accent-soft);background:linear-gradient(180deg,var(--accent-soft),var(--paper-2));border-radius:var(--radius);padding:22px 24px}
+  .callout b{font-family:'Fraunces',serif;font-size:18px;font-weight:600}
+  .callout p{color:var(--ink-soft);font-size:15px;margin-top:8px;line-height:1.6}
+
+  .endcta{margin-top:64px;border-top:1px solid var(--line);padding-top:34px;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between}
+  .btn{display:inline-flex;align-items:center;gap:9px;padding:11px 18px;border-radius:999px;font-size:14px;font-weight:500;border:1px solid var(--ink);background:var(--ink);color:var(--paper);transition:transform .18s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn.ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+  .btn.ghost:hover{border-color:var(--ink)}
+  .attr{font-size:12.5px;color:var(--muted)}
+  .attr a{color:var(--accent);text-decoration:underline;text-underline-offset:2px}
+
+  .reveal{opacity:1;transform:none;transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+  html.js-anim .reveal{opacity:0;transform:translateY(16px)}
+  html.js-anim .reveal.in{opacity:1;transform:none}
+  a:focus-visible,button:focus-visible{outline:2.5px solid var(--accent);outline-offset:3px;border-radius:4px}
+
+  .topbar{display:none}
+  @media (max-width:900px){
+    .shell{flex-direction:column;padding:0 22px}
+    aside{display:none}
+    main{padding:22px 0 60px;max-width:100%}
+    .topbar{display:flex;align-items:center;justify-content:space-between;gap:14px;position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(8px);margin:0 -22px 12px;padding:13px 22px;border-bottom:1px solid var(--line)}
+    .topbar .back{margin:0}
+    .princ{grid-template-columns:1fr}
+    .bar-row{grid-template-columns:110px 1fr 48px;gap:10px}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}
+    .reveal{opacity:1!important;transform:none!important}
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- SIDEBAR -->
+  <aside>
+    <a class="mark" href="index.html" aria-label="Shilpa Rajak — home">
+      <svg viewBox="0 0 100 100" fill="none" aria-hidden="true"><circle cx="50" cy="50" r="47" stroke="#1B1A16" stroke-width="1.4"/><text x="50" y="63" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="42" font-weight="500" fill="#1B1A16">SR</text></svg>
+      <span class="who"><b>Shilpa Rajak</b><span>Senior UX Designer</span></span>
+    </a>
+    <a class="back" href="index.html#work"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 5 8 12l7 7"/></svg> Selected work</a>
+
+    <p class="navhead">Case study</p>
+    <nav class="side" aria-label="Case study sections">
+      <a href="#overview"><span class="dot"></span>Overview</a>
+      <a href="#problem"><span class="dot"></span>The problem</a>
+      <a href="#research"><span class="dot"></span>Research</a>
+      <a href="#solution"><span class="dot"></span>The solution</a>
+      <a href="#outcome"><span class="dot"></span>Outcome</a>
+    </nav>
+
+    <div class="side-foot">
+      <div>© <b>Shilpa Rajak</b> 2026</div>
+      <div>Originally on <a href="https://medium.com/@shilparaj47/todays-top-picks-61fa1e2b6de5" target="_blank" rel="noopener">Medium ↗</a></div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main id="top">
+    <div class="topbar">
+      <a class="back" href="index.html#work"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 5 8 12l7 7"/></svg> Back to work</a>
+      <a href="index.html" aria-label="Home"><svg width="30" height="30" viewBox="0 0 100 100" fill="none"><circle cx="50" cy="50" r="47" stroke="#1B1A16" stroke-width="1.8"/><text x="50" y="63" text-anchor="middle" font-family="Fraunces,serif" font-size="42" font-weight="500" fill="#1B1A16">SR</text></svg></a>
+    </div>
+
+    <!-- HEADER -->
+    <header>
+      <p class="eyebrow reveal">Case study · In-app purchase · UX research</p>
+      <h1 class="title serif reveal">Today's Top Picks</h1>
+      <p class="subtitle serif reveal">A personalised puzzle section that gave players <em>fresh reasons to play</em> — without ever disrupting their daily streak.</p>
+
+      <div class="facts-row reveal">
+        <div class="fact"><b>Role</b><span>Lead UX Designer</span></div>
+        <div class="fact"><b>Product</b><span>Daily Themed Crossword</span></div>
+        <div class="fact"><b>Platform</b><span>iOS &amp; Android</span></div>
+        <div class="fact"><b>Focus</b><span>Home-screen engagement</span></div>
+      </div>
+
+      <div class="stat-chips reveal">
+        <span class="chip"><b>10M+</b><span>downloads</span></span>
+        <span class="chip"><b>600k+</b><span>daily active users</span></span>
+        <span class="chip"><b>&gt;60%</b><span>3rd-puzzle viewers</span></span>
+      </div>
+
+      <figure class="fig reveal">
+        <div class="fig-bar"><i></i><i></i><i></i><span class="lbl">Today's Top Picks — home screen</span></div>
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*4EuiG8jt9-v4juVHAzJLhA.png" alt="Today's Top Picks — the redesigned trending puzzle section on the Daily Themed Crossword home screen" loading="lazy">
+        <figcaption>The shipped feature — a fresh, themed presentation of puzzles on the home screen.</figcaption>
+      </figure>
+    </header>
+
+    <hr class="rule">
+
+    <!-- OVERVIEW -->
+    <section id="overview">
+      <p class="sec-num reveal">01 — Overview</p>
+      <h2 class="sec serif reveal">How it all started.</h2>
+      <p class="body reveal"><strong>Daily Themed Crossword</strong> is a casual, free-to-play crossword game launched in January 2018. It's since grown to <strong>10M+ downloads</strong> and <strong>600k+ daily active users</strong> across iOS and Android.</p>
+      <p class="body reveal">When we launched a <strong>3rd "Today's Puzzle"</strong> — a 13×13 grid that takes 5–8 minutes — third-puzzle viewership climbed above 60% across cohorts. But we noticed a side effect: players were so focused on maintaining their streak through the daily puzzles that they stopped engaging with the rest of the catalogue. That's what prompted the investigation.</p>
+      <figure class="fig reveal">
+        <div class="fig-bar"><i></i><i></i><i></i><span class="lbl">Before / After</span></div>
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*xeQp-KoozStYUB4fGfyLYA.png" alt="Old versus new layout of the featured puzzle section" loading="lazy">
+        <figcaption>Old vs new layout — reframing the "featured puzzle" as "Today's Top Picks".</figcaption>
+      </figure>
+    </section>
+
+    <!-- PROBLEM -->
+    <section id="problem">
+      <p class="sec-num reveal">02 — The problem</p>
+      <h2 class="sec serif reveal">A quiet section players kept scrolling past.</h2>
+      <p class="body reveal">After the 3rd daily puzzle shipped, engagement with the featured section fell sharply — and kept decaying as players aged. The gap between the daily puzzles and everything else was stark.</p>
+
+      <div class="viz reveal">
+        <h4>Home-screen engagement by section</h4>
+        <div class="bar-row"><span class="bl">3rd daily puzzle</span><div class="bar-track"><div class="bar-fill" style="width:62%"></div></div><span class="bar-val">&gt;60%</span></div>
+        <div class="bar-row"><span class="bl">Featured section</span><div class="bar-track"><div class="bar-fill accent" style="width:24%"></div></div><span class="bar-val">&lt;25%</span></div>
+        <p class="foot">Featured-section viewers sat below 25% of cohorts — less than half the reach of the daily puzzle.</p>
+      </div>
+
+      <p class="body reveal">Worse, that reach eroded over a player's lifetime — from roughly 23% on day one to 15% by day 360+.</p>
+      <div class="decay reveal">
+        <div class="step"><b>23%</b><span>Day 1</span></div>
+        <span class="to">→</span>
+        <div class="step"><b>19%</b><span>Day 90</span></div>
+        <span class="to">→</span>
+        <div class="step"><b>15%</b><span>Day 360+</span></div>
+      </div>
+
+      <figure class="fig reveal">
+        <div class="fig-bar"><i></i><i></i><i></i><span class="lbl">Home-screen audit</span></div>
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*T03_nIdIzdV_5A4v69E_pA.png" alt="Analysis of the home-screen sections and where attention dropped off" loading="lazy">
+        <figcaption>Analysing the home-screen — mapping where attention concentrated and where it fell away.</figcaption>
+      </figure>
+    </section>
+
+    <!-- RESEARCH -->
+    <section id="research">
+      <p class="sec-num reveal">03 — Research</p>
+      <h2 class="sec serif reveal">Understanding why players looked away.</h2>
+      <p class="body reveal">I paired the quantitative drop-off with qualitative research to understand the <em class="ink">why</em> behind the numbers — starting from who our players actually are.</p>
+
+      <figure class="fig reveal">
+        <div class="fig-bar"><i></i><i></i><i></i><span class="lbl">Target users</span></div>
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*LNxHNdPFKPceY3H4SWCXEQ.png" alt="Player persona — knowing our players" loading="lazy">
+        <figcaption>Knowing our players — grounding the work in a real player like "Susan", who loves themed puzzles and anticipates our daily packs.</figcaption>
+      </figure>
+
+      <p class="body reveal" style="margin-top:34px"><strong>Hypotheses — why engagement was low:</strong></p>
+      <ul class="clean reveal">
+        <li>The featured puzzles didn't feel as <strong>gratifying</strong> as the daily puzzle, which had a streak tied to it.</li>
+        <li>The section felt <strong>disconnected</strong> from the set of puzzles — hard to choose from the list.</li>
+        <li>It lacked the sense of <strong>daily freshness</strong>, and didn't read as free-to-play.</li>
+        <li>Labels like "bonus archive" or "themed archive" weren't <strong>familiar</strong> or exciting.</li>
+        <li>Overall the section simply looked <strong>dull</strong> — weak motivation to tap in.</li>
+      </ul>
+
+      <div class="quote reveal">
+        <p>“It could be tiring to finish two 13×13 puzzles and a mini in a row — players may simply need a break here, and there was no streak or reward pulling them further.”</p>
+      </div>
+
+      <p class="body reveal">So the goal became clear: <strong>boost puzzle engagement without disrupting the "Today" puzzle</strong> that players already loved. To get there, I looked outward — studying how comparable word games surface variety on their home screens.</p>
+
+      <figure class="fig reveal">
+        <div class="fig-bar"><i></i><i></i><i></i><span class="lbl">Competitive scan</span></div>
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*CeHzeqsZshZgyAmsxFjcWg.png" alt="References from competitor games" loading="lazy">
+        <figcaption>References from competitor games — how others present multiple puzzle types on one screen.</figcaption>
+      </figure>
+
+      <figure class="fig reveal">
+        <div class="fig-bar"><i></i><i></i><i></i><span class="lbl">Exploration</span></div>
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*tuE3CXywJOo7gyYWdq4a8w.png" alt="Layout exploration with pros and cons" loading="lazy">
+        <figcaption>Layout exploration — testing tile treatments and placement against the surrounding hierarchy, weighing pros and cons.</figcaption>
+      </figure>
+    </section>
+
+    <!-- SOLUTION -->
+    <section id="solution">
+      <p class="sec-num reveal">04 — The solution</p>
+      <h2 class="sec serif reveal">A rebrand with intent, not just a reskin.</h2>
+      <p class="body reveal"><strong>"Today's Top Picks"</strong> reframed the tired "featured puzzle" as a fresh, themed presentation on the home screen — giving players a clear, appealing reason to play beyond the daily grind, while leaving the streak-driven daily flow untouched.</p>
+
+      <figure class="fig reveal">
+        <div class="fig-bar"><i></i><i></i><i></i><span class="lbl">Direction</span></div>
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*oPJf9fi5LE96st7Yb2eMXQ.png" alt="Solutioning direction for the new section" loading="lazy">
+        <figcaption>Shaping the solution around the target player — engagement that complements, never competes with, the daily puzzle.</figcaption>
+      </figure>
+
+      <p class="body reveal" style="margin-top:34px"><strong>UX principles baked into the final design:</strong></p>
+      <div class="princ reveal">
+        <div class="p"><b>Freshness</b><span>Themed, rotating picks that signal "new today" instead of a static archive.</span></div>
+        <div class="p"><b>Clear hierarchy</b><span>Distinct tiles that are easy to scan and choose from at a glance.</span></div>
+        <div class="p"><b>Gratification</b><span>Presentation and framing that make these puzzles feel worth the tap.</span></div>
+        <div class="p"><b>Non-disruptive</b><span>Positioned to add value without pulling focus from the daily streak.</span></div>
+      </div>
+
+      <figure class="fig reveal">
+        <div class="fig-bar"><i></i><i></i><i></i><span class="lbl">Final design</span></div>
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*I4vhwb6ApflV53JwCHpeJA.png" alt="Final design showing the applied UX principles" loading="lazy">
+        <figcaption>Final design — the applied UX principles, annotated on the shipped screen.</figcaption>
+      </figure>
+    </section>
+
+    <!-- OUTCOME -->
+    <section id="outcome">
+      <p class="sec-num reveal">05 — Outcome</p>
+      <h2 class="sec serif reveal">A pattern good enough to reuse.</h2>
+      <p class="body reveal">The rebranded section lifted engagement with non-daily puzzles and gave players fresh reasons to return — validating the bet that presentation and framing, not just content, drove the drop-off.</p>
+
+      <figure class="fig reveal">
+        <div class="fig-bar"><i></i><i></i><i></i><span class="lbl">Key metrics</span></div>
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*OrHT221ugq08e3j7H6LfnA.png" alt="Key metrics showing the outcome of the redesign" loading="lazy">
+        <figcaption>Key metrics from launch (indicative figures shown in place of confidential numbers).</figcaption>
+      </figure>
+
+      <div class="callout reveal">
+        <b>The layout worked so well, it became a template.</b>
+        <p>We went on to introduce an "expert puzzle" and several other categories presented the same way — turning a single fix into a reusable home-screen pattern.</p>
+      </div>
+
+      <figure class="fig reveal">
+        <div class="fig-bar"><i></i><i></i><i></i><span class="lbl">Reception</span></div>
+        <img src="https://miro.medium.com/v2/resize:fit:1400/1*el8JOh3A6WLy8EULbtAMLA.png" alt="Positive reception and testimonials for the feature" loading="lazy">
+        <figcaption>All the love we received — from players and the team.</figcaption>
+      </figure>
+
+      <p class="body reveal">A huge shout-out to the team, PMs and game artists who brought this to life. 🥳</p>
+
+      <div class="endcta reveal">
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a class="btn" href="index.html#work">← More work</a>
+          <a class="btn ghost" href="mailto:shilparaj47@gmail.com">Get in touch</a>
+        </div>
+        <span class="attr">Originally published on <a href="https://medium.com/@shilparaj47/todays-top-picks-61fa1e2b6de5" target="_blank" rel="noopener">Medium</a></span>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var revs=[].slice.call(document.querySelectorAll('.reveal'));
+  // Content is visible by default. Only hide-then-animate when JS + IO are live,
+  // so nothing can ever get stuck invisible.
+  if(!reduce && 'IntersectionObserver' in window){
+    document.documentElement.classList.add('js-anim');
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -6% 0px',threshold:0.04});
+    revs.forEach(function(e){io.observe(e);});
+    // backup to IO: reveal anything in view on load/scroll/resize (guarantees nothing sticks hidden)
+    function safety(){var vh=window.innerHeight;revs.forEach(function(e){if(!e.classList.contains('in') && e.getBoundingClientRect().top<vh){e.classList.add('in');}});}
+    window.addEventListener('load',function(){setTimeout(safety,300);});
+    window.addEventListener('scroll',safety,{passive:true});
+    window.addEventListener('resize',safety);
+  }
+  // Active section highlight in the sidebar
+  var links=[].slice.call(document.querySelectorAll('nav.side a[href^="#"]'));
+  var secs=[].slice.call(document.querySelectorAll('main section[id]'));
+  if('IntersectionObserver' in window){var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(a){a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id);});}});},{rootMargin:'-45% 0px -50% 0px'});secs.forEach(function(s){so.observe(s);});}
+})();
+</script>
+</body>
+</html>
