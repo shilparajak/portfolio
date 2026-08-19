@@ -77,7 +77,7 @@
   section + section{margin-top:clamp(56px,7vw,88px)}
   .rule{height:1px;background:var(--line);border:0;margin:clamp(40px,6vw,64px) 0}
 
-  h1.name{font-weight:500;font-size:clamp(46px,7.4vw,74px);line-height:.98;letter-spacing:-.02em}
+  h1.name{font-weight:500;font-size:clamp(52px,8.2vw,92px);line-height:.9;letter-spacing:-.028em}
   .tagline{font-size:clamp(19px,2.4vw,23px);line-height:1.35;color:var(--ink-soft);margin-top:18px;max-width:30ch}
   .tagline em{font-style:italic;color:var(--ink)}
   h2.sec{font-weight:500;font-size:clamp(26px,3.4vw,34px);line-height:1.12;letter-spacing:-.015em;margin:14px 0 0}
@@ -86,6 +86,28 @@
   p.body + p.body{margin-top:14px}
   .lead{font-size:17.5px;line-height:1.7}
   .ink{color:var(--ink);font-weight:500}
+
+  /* ---------- Hero ---------- */
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(30px,5vw,60px);align-items:center;min-height:min(78vh,600px);padding-top:6px}
+  .status{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .status .led{width:8px;height:8px;border-radius:50%;background:#3FA46A;box-shadow:0 0 0 3px rgba(63,164,106,.16)}
+  .hero-left h1.name{margin-top:18px}
+  .stats{display:flex;gap:clamp(14px,2vw,22px);margin-top:32px;flex-wrap:nowrap}
+  .stats .s{padding-left:clamp(14px,2vw,22px);border-left:1px solid var(--line-strong);white-space:nowrap}
+  .stats .s:first-child{padding-left:0;border-left:0}
+  .stats .s b{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(21px,2.3vw,27px);line-height:1;display:block;color:var(--ink)}
+  .stats .s span{font-size:12px;color:var(--muted);letter-spacing:.01em}
+  .hero-right{display:flex;justify-content:center;align-items:center}
+  .portrait{width:100%;max-width:440px;height:auto;mix-blend-mode:multiply}
+  .xword{--c:clamp(40px,4.7vw,55px);display:grid;width:max-content;grid-template-columns:repeat(6,var(--c));grid-template-rows:repeat(6,var(--c));gap:1px;background:var(--line-strong);border-radius:16px;overflow:hidden;box-shadow:0 26px 60px rgba(27,26,22,.13);transform:rotate(-2.5deg);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+  .xword:hover{transform:rotate(0deg)}
+  .xword.mini{--c:clamp(28px,3.6vw,34px);box-shadow:0 14px 34px rgba(27,26,22,.09);transform:rotate(-3deg)}
+  .xword.mini:hover{transform:rotate(0deg)}
+  .xword .cell{background:var(--paper-2);display:flex;align-items:center;justify-content:center;position:relative;font-family:'Fraunces',serif;font-weight:500;font-size:calc(var(--c)*.48);color:var(--ink)}
+  .xword .cell.blocked{background:var(--ink)}
+  .xword .cell.accent{background:var(--accent);color:#fff}
+  .xword .cell .num{position:absolute;top:3px;left:5px;font-family:'Inter',sans-serif;font-size:9.5px;font-weight:600;color:var(--muted);line-height:1}
+  .xword .cell.accent .num{color:rgba(255,255,255,.85)}
 
   /* ---------- Buttons / pills ---------- */
   .actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px}
@@ -201,6 +223,11 @@
     .caps > div + div{border-left:0;border-top:1px solid var(--line)}
     .facts{grid-template-columns:1fr;gap:36px}
     .life{grid-template-columns:1fr}
+    .hero-grid{grid-template-columns:1fr;gap:36px;min-height:0;padding-top:4px}
+    .hero-right{justify-content:center;order:-1}
+    .portrait{max-width:300px}
+    .xword{--c:clamp(40px,13.5vw,54px)}
+    .stats{flex-wrap:wrap}
     .tl-row{grid-template-columns:70px 1fr;gap:16px}
   }
 
@@ -267,21 +294,35 @@
 
     <!-- ---------- HERO / ABOUT ---------- -->
     <section id="about">
-      <p class="eyebrow reveal">Senior UX Designer · PlaySimple Games</p>
-      <h1 class="name serif reveal">Shilpa Rajak</h1>
-      <p class="tagline serif reveal">Designing game experiences for hybrid-casual &amp; word games played by <em>10&nbsp;million+</em> people.</p>
+      <div class="hero-grid">
+        <div class="hero-left">
+          <p class="status reveal"><span class="led"></span> Open to Lead / Senior UX roles</p>
+          <h1 class="name serif reveal">Shilpa<br>Rajak</h1>
+          <p class="tagline serif reveal">Senior UX Designer crafting game experiences for hybrid-casual &amp; word games played by <em>10&nbsp;million+</em> people.</p>
 
-      <div class="actions reveal">
-        <a class="btn" href="mailto:shilparaj47@gmail.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
-          Get in touch
-        </a>
-        <a class="btn icon ghost" href="https://linkedin.com/in/shilpa" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5A1.94 1.94 0 1 1 3.06 5a1.94 1.94 0 0 1 3.88 0ZM3.34 8.4h3.2V21h-3.2V8.4Zm5.2 0h3.07v1.72h.04c.43-.8 1.47-1.65 3.03-1.65 3.24 0 3.84 2.13 3.84 4.9V21h-3.2v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.15 1.46-2.15 2.96V21h-3.2V8.4Z"/></svg>
-        </a>
-        <a class="btn icon ghost" href="https://medium.com/@shilparaj47" target="_blank" rel="noopener" aria-label="Medium">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 1 1-13.6 0 6.8 6.8 0 0 1 13.6 0Zm7.42 0c0 3.54-1.52 6.42-3.4 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.4-6.42S20.96 8.46 20.96 12ZM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75S24 8.83 24 12Z"/></svg>
-        </a>
+          <div class="stats reveal">
+            <div class="s"><b>10M+</b><span>players</span></div>
+            <div class="s"><b>600k</b><span>daily active</span></div>
+            <div class="s"><b>6+ yrs</b><span>game UX</span></div>
+          </div>
+
+          <div class="actions reveal">
+            <a class="btn" href="mailto:shilparaj47@gmail.com">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+              Get in touch
+            </a>
+            <a class="btn icon ghost" href="https://linkedin.com/in/shilpa" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.94 5A1.94 1.94 0 1 1 3.06 5a1.94 1.94 0 0 1 3.88 0ZM3.34 8.4h3.2V21h-3.2V8.4Zm5.2 0h3.07v1.72h.04c.43-.8 1.47-1.65 3.03-1.65 3.24 0 3.84 2.13 3.84 4.9V21h-3.2v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.15 1.46-2.15 2.96V21h-3.2V8.4Z"/></svg>
+            </a>
+            <a class="btn icon ghost" href="https://medium.com/@shilparaj47" target="_blank" rel="noopener" aria-label="Medium">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13.54 12a6.8 6.8 0 1 1-13.6 0 6.8 6.8 0 0 1 13.6 0Zm7.42 0c0 3.54-1.52 6.42-3.4 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.4-6.42S20.96 8.46 20.96 12ZM24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75S24 8.83 24 12Z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-right reveal">
+          <img class="portrait" src="shilpa-portrait.jpg" alt="Illustrated watercolor portrait of Shilpa Rajak" width="900" height="1000" fetchpriority="high">
+        </div>
       </div>
 
       <hr class="rule">
@@ -501,6 +542,16 @@
     <!-- ---------- CONTACT ---------- -->
     <section id="contact">
       <hr class="rule">
+      <div class="reveal" style="margin-bottom:30px">
+        <div class="xword mini" role="img" aria-label="A small crossword spelling SHILPA across and PLAY down">
+          <i class="cell blocked"></i><i class="cell"></i><i class="cell"></i><i class="cell"></i><i class="cell"></i><i class="cell"></i>
+          <i class="cell"></i><i class="cell"></i><i class="cell"></i><i class="cell blocked"></i><i class="cell"></i><i class="cell"></i>
+          <i class="cell"><span class="num">1</span>S</i><i class="cell">H</i><i class="cell">I</i><i class="cell">L</i><i class="cell accent"><span class="num">2</span>P</i><i class="cell">A</i>
+          <i class="cell"></i><i class="cell blocked"></i><i class="cell"></i><i class="cell"></i><i class="cell">L</i><i class="cell"></i>
+          <i class="cell"></i><i class="cell"></i><i class="cell"></i><i class="cell"></i><i class="cell">A</i><i class="cell blocked"></i>
+          <i class="cell"></i><i class="cell"></i><i class="cell blocked"></i><i class="cell"></i><i class="cell">Y</i><i class="cell"></i>
+        </div>
+      </div>
       <p class="eyebrow reveal">Contact</p>
       <h2 class="contact-h serif reveal" style="margin-top:14px">Let's play and create more <em>amazing games</em> together.</h2>
       <p class="body reveal" style="margin-top:16px;font-size:17px">I'm currently open to Lead / Senior UX design opportunities.</p>
