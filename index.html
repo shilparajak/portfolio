@@ -144,7 +144,12 @@
 
   /* ---------- Skill cloud ---------- */
   .cloud-title{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(30px,4.4vw,46px);line-height:1.05;letter-spacing:-.01em;color:var(--accent);margin-top:12px}
-  .cloud{display:flex;flex-wrap:wrap;justify-content:flex-start;align-items:center;gap:11px 10px;margin-top:26px}
+  .sklist{margin-top:24px}
+  .sk-line{padding:17px 0;border-top:1px solid var(--line)}
+  .sk-line:first-child{border-top:0;padding-top:0}
+  .sk-line h4{font-family:'Fraunces',serif;font-weight:600;font-size:18px;display:inline;color:var(--ink)}
+  .sk-line span{color:var(--ink-soft);font-size:16px;line-height:1.72}
+  .toolrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 17px;border-radius:999px;font-size:14px;font-weight:500;white-space:nowrap;transform:rotate(var(--r,0deg));transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s;box-shadow:0 6px 16px rgba(27,26,22,.05)}
   .pill:hover{transform:rotate(0deg) scale(1.05);box-shadow:0 10px 24px rgba(27,26,22,.10)}
   .pill.skill{background:rgba(178,74,49,.12);color:#6E2E1B}
@@ -455,35 +460,21 @@
     <section id="skills">
       <p class="eyebrow reveal">Skills &amp; tools</p>
       <h2 class="cloud-title serif reveal">What I bring to the table</h2>
-      <div class="cloud reveal">
-        <span class="pill tool" style="--r:-4deg"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.6 2h3.4v6.7H8.6a3.35 3.35 0 1 1 0-6.7z"/><path d="M12 2h3.4a3.35 3.35 0 0 1 0 6.7H12V2z"/><circle cx="15.4" cy="12" r="3.35"/><path d="M8.6 8.7H12v6.6H8.6a3.3 3.3 0 1 1 0-6.6z"/><path d="M8.6 15.3H12v3.3a3.35 3.35 0 1 1-3.4-3.3z"/></svg>Figma</span>
-        <span class="pill skill" style="--r:3deg">Game UX</span>
-        <span class="pill skill" style="--r:-2deg">Discovery</span>
-        <span class="pill tool" style="--r:4deg">Claude</span>
-        <span class="pill skill" style="--r:-3deg">User Research</span>
-        <span class="pill skill" style="--r:2deg">User Interviews</span>
-        <span class="pill skill" style="--r:-4deg">Competitive Benchmarking</span>
-        <span class="pill tool" style="--r:3deg">FigJam</span>
-        <span class="pill skill" style="--r:-2deg">Funnel Analysis</span>
-        <span class="pill skill" style="--r:4deg">UX Metrics Analysis</span>
-        <span class="pill skill" style="--r:-3deg">Journey Mapping</span>
-        <span class="pill tool" style="--r:2deg"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.6 3.2 12.4 6l1.2-2.9L10.5 6l.9-3L8.3 6.4 6 20.8h3.3l1.7-9.3.7 9.3h3.1l2.1-10.7.5 10.7H21L18.7 3z"/></svg>Miro</span>
-        <span class="pill skill" style="--r:-4deg">Usability Testing</span>
-
-        <span class="pill skill" style="--r:3deg">Wireframes</span>
-        <span class="pill tool" style="--r:-3deg">Cursor</span>
-        <span class="pill skill" style="--r:4deg">Flows Diagram</span>
-        <span class="pill skill" style="--r:-2deg">Interactive Prototyping</span>
-        <span class="pill tool" style="--r:3deg">Figma AI</span>
-        <span class="pill skill" style="--r:-4deg">UI Design</span>
-        <span class="pill skill" style="--r:2deg">Visual Design</span>
-        <span class="pill skill" style="--r:-3deg">Hi-Fi Mockups</span>
-        <span class="pill skill" style="--r:4deg">Design Systems</span>
-        <span class="pill skill" style="--r:-2deg">Motion Design</span>
-        <span class="pill skill" style="--r:3deg">IAP Flows</span>
-        <span class="pill skill" style="--r:-4deg">Monetisation UX</span>
-        <span class="pill tool" style="--r:2deg">Playtest Cloud</span>
-        <span class="pill skill" style="--r:-3deg">Systems Thinking</span>
+      <div class="sklist reveal">
+        <div class="sk-line"><h4>Research&nbsp;—&nbsp;</h4><span>Discovery, User Research, User Interviews, Competitive Benchmarking, Funnel Analysis, UX Metrics Analysis, Usability Testing, Journey Mapping.</span></div>
+        <div class="sk-line"><h4>Design &amp; Craft&nbsp;—&nbsp;</h4><span>Wireframes, Flows Diagram, Interactive Prototyping, UI Design, Visual Design, Hi-Fi Mockups, Design Systems, Motion Design.</span></div>
+        <div class="sk-line"><h4>Domain&nbsp;—&nbsp;</h4><span>Game UX, IAP Flows, Monetisation UX, Systems Thinking.</span></div>
+        <div class="sk-line"><h4>Tools&nbsp;—&nbsp;</h4>
+          <div class="toolrow">
+            <span class="pill tool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.6 2h3.4v6.7H8.6a3.35 3.35 0 1 1 0-6.7z"/><path d="M12 2h3.4a3.35 3.35 0 0 1 0 6.7H12V2z"/><circle cx="15.4" cy="12" r="3.35"/><path d="M8.6 8.7H12v6.6H8.6a3.3 3.3 0 1 1 0-6.6z"/><path d="M8.6 15.3H12v3.3a3.35 3.35 0 1 1-3.4-3.3z"/></svg>Figma</span>
+            <span class="pill tool">FigJam</span>
+            <span class="pill tool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.6 3.2 12.4 6l1.2-2.9L10.5 6l.9-3L8.3 6.4 6 20.8h3.3l1.7-9.3.7 9.3h3.1l2.1-10.7.5 10.7H21L18.7 3z"/></svg>Miro</span>
+            <span class="pill tool">Claude</span>
+            <span class="pill tool">Cursor</span>
+            <span class="pill tool">Figma AI</span>
+            <span class="pill tool">Playtest Cloud</span>
+          </div>
+        </div>
       </div>
     </section>
 
