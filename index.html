@@ -143,13 +143,12 @@
   .caps h4{font-size:11.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:15px}
 
   /* ---------- Skill cloud ---------- */
-  .cloud{position:relative;min-height:700px;margin-top:14px}
-  .cloud .center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(56%,300px);text-align:center;z-index:3}
-  .cloud .center h2{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(28px,3.8vw,40px);line-height:1.06;letter-spacing:-.01em;color:var(--accent)}
-  .cloud .center p{margin-top:16px;color:var(--muted);font-size:14.5px;line-height:1.55}
-  .pill{position:absolute;display:inline-flex;align-items:center;gap:8px;padding:10px 17px;border-radius:999px;font-size:14px;font-weight:500;white-space:nowrap;
-    transform:rotate(var(--r,0deg));transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s;box-shadow:0 6px 16px rgba(27,26,22,.05);z-index:1}
-  .pill:hover{transform:rotate(0deg) scale(1.05);box-shadow:0 10px 24px rgba(27,26,22,.10);z-index:4}
+  .cloud{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:11px 10px;max-width:860px;margin:18px auto 0}
+  .cloud .center{flex-basis:100%;text-align:center;margin:16px 0}
+  .cloud .center h2{font-family:'Fraunces',serif;font-style:italic;font-weight:500;font-size:clamp(28px,3.8vw,42px);line-height:1.06;letter-spacing:-.01em;color:var(--accent)}
+  .cloud .center p{margin:16px auto 0;color:var(--muted);font-size:14.5px;line-height:1.55;max-width:420px}
+  .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 17px;border-radius:999px;font-size:14px;font-weight:500;white-space:nowrap;transform:rotate(var(--r,0deg));transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s;box-shadow:0 6px 16px rgba(27,26,22,.05)}
+  .pill:hover{transform:rotate(0deg) scale(1.05);box-shadow:0 10px 24px rgba(27,26,22,.10)}
   .pill.skill{background:rgba(178,74,49,.12);color:#6E2E1B}
   .pill.tool{background:var(--paper-2);border:1px solid var(--line-strong);color:var(--ink)}
   .pill svg{width:16px;height:16px;flex:none}
@@ -458,28 +457,39 @@
     <section id="skills">
       <p class="eyebrow reveal" style="text-align:center">Skills &amp; tools</p>
       <div class="cloud reveal">
+        <span class="pill tool" style="--r:-4deg"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.6 2h3.4v6.7H8.6a3.35 3.35 0 1 1 0-6.7z"/><path d="M12 2h3.4a3.35 3.35 0 0 1 0 6.7H12V2z"/><circle cx="15.4" cy="12" r="3.35"/><path d="M8.6 8.7H12v6.6H8.6a3.3 3.3 0 1 1 0-6.6z"/><path d="M8.6 15.3H12v3.3a3.35 3.35 0 1 1-3.4-3.3z"/></svg>Figma</span>
+        <span class="pill skill" style="--r:3deg">Game UX</span>
+        <span class="pill skill" style="--r:-2deg">Discovery</span>
+        <span class="pill tool" style="--r:4deg">Claude</span>
+        <span class="pill skill" style="--r:-3deg">User Research</span>
+        <span class="pill skill" style="--r:2deg">User Interviews</span>
+        <span class="pill skill" style="--r:-4deg">Competitive Benchmarking</span>
+        <span class="pill tool" style="--r:3deg">FigJam</span>
+        <span class="pill skill" style="--r:-2deg">Funnel Analysis</span>
+        <span class="pill skill" style="--r:4deg">UX Metrics Analysis</span>
+        <span class="pill skill" style="--r:-3deg">Journey Mapping</span>
+        <span class="pill tool" style="--r:2deg"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.6 3.2 12.4 6l1.2-2.9L10.5 6l.9-3L8.3 6.4 6 20.8h3.3l1.7-9.3.7 9.3h3.1l2.1-10.7.5 10.7H21L18.7 3z"/></svg>Miro</span>
+        <span class="pill skill" style="--r:-4deg">Usability Testing</span>
+
         <div class="center">
           <h2>What I bring<br>to the table</h2>
           <p>Craft, research and pixel-level polish — the toolkit behind experiences played by millions.</p>
         </div>
 
-        <span class="pill tool" style="left:18%;top:5%;--r:-4deg"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.6 2h3.4v6.7H8.6a3.35 3.35 0 1 1 0-6.7z"/><path d="M12 2h3.4a3.35 3.35 0 0 1 0 6.7H12V2z"/><circle cx="15.4" cy="12" r="3.35"/><path d="M8.6 8.7H12v6.6H8.6a3.3 3.3 0 1 1 0-6.6z"/><path d="M8.6 15.3H12v3.3a3.35 3.35 0 1 1-3.4-3.3z"/></svg>Figma</span>
-        <span class="pill skill" style="left:45%;top:12%;--r:3deg">Game UX</span>
-        <span class="pill skill" style="right:8%;top:4%;--r:4deg">Systems Thinking</span>
-
-        <span class="pill skill" style="left:9%;top:25%;--r:-3deg">Design Systems</span>
-        <span class="pill skill" style="right:6%;top:23%;--r:3deg">UI Design</span>
-        <span class="pill tool" style="left:3%;top:37%;--r:-2deg"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.6 3.2 12.4 6l1.2-2.9L10.5 6l.9-3L8.3 6.4 6 20.8h3.3l1.7-9.3.7 9.3h3.1l2.1-10.7.5 10.7H21L18.7 3z"/></svg>Miro</span>
-        <span class="pill skill" style="right:3%;top:31%;--r:-2deg">Monetisation UX</span>
-
-        <span class="pill skill" style="left:5%;top:64%;--r:2deg">User Research</span>
-        <span class="pill skill" style="right:6%;top:63%;--r:-3deg">IAP Flows</span>
-        <span class="pill tool" style="left:9%;top:76%;--r:3deg">AI Tools</span>
-        <span class="pill tool" style="right:15%;top:73%;--r:4deg">Playtest Cloud</span>
-
-        <span class="pill skill" style="left:18%;top:84%;--r:-3deg">Prototyping</span>
-        <span class="pill skill" style="left:41%;top:93%;--r:3deg">Motion Design</span>
-        <span class="pill skill" style="right:20%;top:84%;--r:-4deg">Usability Testing</span>
+        <span class="pill skill" style="--r:3deg">Wireframes</span>
+        <span class="pill tool" style="--r:-3deg">Cursor</span>
+        <span class="pill skill" style="--r:4deg">Flows Diagram</span>
+        <span class="pill skill" style="--r:-2deg">Interactive Prototyping</span>
+        <span class="pill tool" style="--r:3deg">Figma AI</span>
+        <span class="pill skill" style="--r:-4deg">UI Design</span>
+        <span class="pill skill" style="--r:2deg">Visual Design</span>
+        <span class="pill skill" style="--r:-3deg">Hi-Fi Mockups</span>
+        <span class="pill skill" style="--r:4deg">Design Systems</span>
+        <span class="pill skill" style="--r:-2deg">Motion Design</span>
+        <span class="pill skill" style="--r:3deg">IAP Flows</span>
+        <span class="pill skill" style="--r:-4deg">Monetisation UX</span>
+        <span class="pill tool" style="--r:2deg">Playtest Cloud</span>
+        <span class="pill skill" style="--r:-3deg">Systems Thinking</span>
       </div>
     </section>
 
