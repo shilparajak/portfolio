@@ -67,6 +67,8 @@
   nav.side a:hover{color:var(--ink)}
   nav.side a.active{color:var(--ink);font-weight:500}
   nav.side a.active .dot{width:26px;background:var(--accent)}
+  nav.side a.nav-ext .lbl svg{width:11px;height:11px;vertical-align:-1px;margin-left:1px;opacity:.5;transition:opacity .18s}
+  nav.side a.nav-ext:hover .lbl svg{opacity:1}
   .side-foot{margin-top:auto;padding-top:28px;font-size:12.5px;line-height:1.9;color:var(--muted)}
   .side-foot .row{display:flex;align-items:center;gap:8px}
   .side-foot b{color:var(--ink-soft);font-weight:500}
@@ -284,6 +286,7 @@
       <a href="#skills"><span class="dot"></span>Skills &amp; tools</a>
       <a href="#frameworks"><span class="dot"></span>Frameworks</a>
       <a href="#life"><span class="dot"></span>Life outside Figma</a>
+      <a href="resume.pdf" target="_blank" rel="noopener" class="nav-ext"><span class="dot"></span><span class="lbl">Résumé <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></span></a>
       <a href="#contact"><span class="dot"></span>Contact</a>
     </nav>
 
@@ -312,6 +315,7 @@
         <a href="#skills">Skills</a>
         <a href="#frameworks">Frameworks</a>
         <a href="#life">Life</a>
+        <a href="resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
