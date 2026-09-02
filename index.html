@@ -23,7 +23,7 @@
     --accent:#B24A31;
     --radius:16px;
     --sidebar:288px;
-    --maxcol:780px;
+    --maxcol:960px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -90,7 +90,7 @@
   .ink{color:var(--ink);font-weight:500}
 
   /* ---------- Hero ---------- */
-  .hero-grid{display:grid;grid-template-columns:1.45fr .55fr;gap:clamp(24px,4vw,48px);align-items:center;min-height:min(78vh,600px);padding-top:6px}
+  .hero-grid{display:grid;grid-template-columns:1fr minmax(0,440px);gap:clamp(24px,4vw,56px);align-items:center;min-height:min(78vh,600px);padding-top:6px}
   .status{display:inline-flex;align-items:center;gap:9px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
   .status .led{width:8px;height:8px;border-radius:50%;background:#3FA46A;box-shadow:0 0 0 3px rgba(63,164,106,.16)}
   .hero-left h1.name{margin-top:18px}
