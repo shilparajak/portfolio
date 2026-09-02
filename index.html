@@ -23,7 +23,7 @@
     --accent:#B24A31;
     --radius:16px;
     --sidebar:288px;
-    --maxcol:660px;
+    --maxcol:780px;
   }
   *{margin:0;padding:0;box-sizing:border-box}
   html{scroll-behavior:smooth}
@@ -40,7 +40,7 @@
   .serif{font-family:'Fraunces',Georgia,serif;font-optical-sizing:auto}
 
   /* ---------- Layout ---------- */
-  .shell{display:flex;max-width:1360px;margin:0 auto;padding:0 clamp(20px,4vw,44px)}
+  .shell{display:flex;max-width:1480px;margin:0 auto;padding:0 clamp(18px,3vw,34px)}
   aside{
     width:var(--sidebar);flex:none;
     position:sticky;top:0;align-self:flex-start;height:100vh;
@@ -99,7 +99,7 @@
   .stats .s:first-child{padding-left:0;border-left:0}
   .stats .s b{font-family:'Fraunces',serif;font-weight:600;font-size:clamp(21px,2.3vw,27px);line-height:1;display:block;color:var(--ink)}
   .stats .s span{font-size:12px;color:var(--muted);letter-spacing:.01em}
-  .hero-right{display:flex;justify-content:center;align-items:center}
+  .hero-right{display:flex;justify-content:flex-end;align-items:center}
   .portrait{width:100%;max-width:440px;height:auto;mix-blend-mode:multiply}
   .xword{--c:clamp(40px,4.7vw,55px);display:grid;width:max-content;grid-template-columns:repeat(6,var(--c));grid-template-rows:repeat(6,var(--c));gap:1px;background:var(--line-strong);border-radius:16px;overflow:hidden;box-shadow:0 26px 60px rgba(27,26,22,.13);transform:rotate(-2.5deg);transition:transform .5s cubic-bezier(.2,.7,.2,1)}
   .xword:hover{transform:rotate(0deg)}
