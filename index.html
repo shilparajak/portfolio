@@ -291,7 +291,6 @@
     <p class="navhead">Portfolio</p>
     <nav class="side" aria-label="Section navigation">
       <a href="#about"><span class="dot"></span>About</a>
-      <a href="#journey"><span class="dot"></span>Journey</a>
       <a href="#work"><span class="dot"></span>Selected work</a>
       <a href="#frameworks"><span class="dot"></span>Frameworks</a>
       <a href="#skills"><span class="dot"></span>Skills &amp; tools</a>
@@ -320,7 +319,6 @@
       </a>
       <nav aria-label="Section navigation">
         <a href="#about">About</a>
-        <a href="#journey">Journey</a>
         <a href="#work">Work</a>
         <a href="#frameworks">Frameworks</a>
         <a href="#skills">Skills</a>
@@ -371,10 +369,9 @@
         <p class="body">My gaming journey started with countless hours of <span class="ink">Counter-Strike, Call&nbsp;of&nbsp;Duty, PUBG</span> and competitive board-game weekends — not knowing it would one day become a full-time career in game experience design.</p>
         <p class="body">Since then it's been an exciting run: designing games, crafting player experiences, and listening to the stories players bring along the way.</p>
       </div>
-    </section>
 
-    <!-- ---------- JOURNEY ---------- -->
-    <section id="journey">
+      <hr class="rule reveal">
+
       <p class="eyebrow reveal">Journey</p>
       <div class="tl reveal" style="margin-top:26px">
         <div class="tl-row">
@@ -558,7 +555,7 @@
 <script>
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var TABS = ['about','journey','work','frameworks','skills','life','contact'];
+  var TABS = ['about','work','frameworks','skills','life','contact'];
   var root = document.documentElement;
   root.classList.add('tabbed');           // enable tabs (JS-only; degrades to full page without JS)
   if(!reduce) root.classList.add('js-anim');
