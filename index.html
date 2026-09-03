@@ -50,6 +50,10 @@
   }
   main{flex:1;min-width:0;padding:44px 0 44px clamp(28px,4vw,64px);max-width:calc(var(--maxcol) + 64px)}
 
+  /* Tabbed navigation: only the active section shows (JS-enhanced; degrades to full scroll without JS) */
+  html.tabbed main > section[id]{display:none;margin-top:0}
+  html.tabbed main > section[id].show{display:block}
+
   /* ---------- Sidebar ---------- */
   .mark{display:flex;align-items:center;gap:12px;margin-bottom:40px}
   .mark svg{width:46px;height:46px;flex:none}
@@ -276,7 +280,7 @@
 
   <!-- ============ SIDEBAR ============ -->
   <aside>
-    <a class="mark" href="#top" aria-label="Shilpa Rajak — home">
+    <a class="mark" href="#about" aria-label="Shilpa Rajak — home">
       <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
         <circle cx="50" cy="50" r="47" stroke="#1B1A16" stroke-width="1.4"/>
         <text x="50" y="63" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="42" font-weight="500" fill="#1B1A16">SR</text>
@@ -308,7 +312,7 @@
 
     <!-- mobile top bar -->
     <div class="topbar">
-      <a class="mark" href="#top" aria-label="Shilpa Rajak — home">
+      <a class="mark" href="#about" aria-label="Shilpa Rajak — home">
         <svg viewBox="0 0 100 100" fill="none" aria-hidden="true">
           <circle cx="50" cy="50" r="47" stroke="#1B1A16" stroke-width="1.6"/>
           <text x="50" y="63" text-anchor="middle" font-family="Fraunces,Georgia,serif" font-size="42" font-weight="500" fill="#1B1A16">SR</text>
@@ -554,37 +558,53 @@
 <script>
 (function(){
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var TABS = ['about','journey','work','frameworks','skills','life','contact'];
+  var root = document.documentElement;
+  root.classList.add('tabbed');           // enable tabs (JS-only; degrades to full page without JS)
+  if(!reduce) root.classList.add('js-anim');
 
-  // Reveal on scroll. Content is visible by default; only hide-then-animate when
-  // JS + IntersectionObserver are live, so nothing can get stuck invisible.
-  var revs = [].slice.call(document.querySelectorAll('.reveal'));
-  if(!reduce && 'IntersectionObserver' in window){
-    document.documentElement.classList.add('js-anim');
-    var ro = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target); } });
-    }, {rootMargin:'0px 0px -6% 0px', threshold:0.04});
-    revs.forEach(function(el){ro.observe(el);});
-    // backup to IO: reveal anything in view on load/scroll/resize (guarantees nothing sticks hidden)
-    function safety(){var vh=window.innerHeight;revs.forEach(function(e){if(!e.classList.contains('in') && e.getBoundingClientRect().top<vh){e.classList.add('in');}});}
-    window.addEventListener('load', function(){setTimeout(safety,300);});
-    window.addEventListener('scroll', safety, {passive:true});
-    window.addEventListener('resize', safety);
+  var panels   = [].slice.call(document.querySelectorAll('main > section[id]'));
+  var navLinks = [].slice.call(document.querySelectorAll('nav a[href^="#"]'));
+
+  function setReveals(panel, on){
+    var r = panel.querySelectorAll('.reveal');
+    for(var i=0;i<r.length;i++){
+      if(!on){ r[i].classList.remove('in'); continue; }
+      if(reduce){ r[i].classList.add('in'); }
+      else { (function(el,k){ setTimeout(function(){ el.classList.add('in'); }, Math.min(k*40,260)); })(r[i], i); }
+    }
   }
 
-  // Active-section nav highlight
-  var sections = [].slice.call(document.querySelectorAll('main section[id]'));
-  var links = [].slice.call(document.querySelectorAll('nav a[href^="#"]'));
-  function setActive(id){
-    links.forEach(function(a){
-      a.classList.toggle('active', a.getAttribute('href') === '#'+id);
-    });
+  function show(id){
+    if(TABS.indexOf(id) < 0) id = 'about';
+    for(var i=0;i<panels.length;i++){
+      var on = panels[i].id === id;
+      panels[i].classList.toggle('show', on);
+      setReveals(panels[i], on);
+    }
+    for(var j=0;j<navLinks.length;j++){
+      navLinks[j].classList.toggle('active', navLinks[j].getAttribute('href') === '#'+id);
+    }
+    window.scrollTo(0,0);
   }
-  if('IntersectionObserver' in window){
-    var so = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
-    }, {rootMargin:'-45% 0px -50% 0px'});
-    sections.forEach(function(s){so.observe(s);});
+
+  // Any in-page # link (nav + logo) becomes a tab switch
+  var hashLinks = [].slice.call(document.querySelectorAll('a[href^="#"]'));
+  for(var n=0;n<hashLinks.length;n++){
+    (function(a){
+      var id = a.getAttribute('href').slice(1);
+      if(TABS.indexOf(id) < 0 && id !== 'top' && id !== 'about') return;
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        var t = (id === 'top') ? 'about' : id;
+        if(location.hash !== '#'+t){ history.pushState(null,'','#'+t); }
+        show(t);
+      });
+    })(hashLinks[n]);
   }
+
+  window.addEventListener('hashchange', function(){ show((location.hash||'#about').slice(1)); });
+  show((location.hash||'#about').slice(1));
 })();
 </script>
 </body>
