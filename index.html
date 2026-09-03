@@ -156,6 +156,13 @@
   .sk-line h4{font-family:'Fraunces',serif;font-weight:600;font-size:18px;display:inline;color:var(--ink)}
   .sk-line span{color:var(--ink-soft);font-size:16px;line-height:1.72}
   .toolrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+  /* app-icon tiles */
+  .tools-apps{display:flex;flex-wrap:wrap;gap:20px 22px;margin-top:16px}
+  .app{display:flex;flex-direction:column;align-items:center;gap:10px;width:74px}
+  .app .tile{width:60px;height:60px;border-radius:15px;display:flex;align-items:center;justify-content:center;box-shadow:0 7px 18px rgba(27,26,22,.12),0 1px 3px rgba(27,26,22,.07);transition:transform .22s cubic-bezier(.2,.7,.2,1),box-shadow .22s}
+  .app:hover .tile{transform:translateY(-3px);box-shadow:0 12px 26px rgba(27,26,22,.16)}
+  .app .tile.light{background:#fff}
+  .app .lbl{font-size:12px;color:var(--muted);text-align:center;line-height:1.2}
   .pill{display:inline-flex;align-items:center;gap:8px;padding:10px 17px;border-radius:999px;font-size:14px;font-weight:500;white-space:nowrap;transform:rotate(var(--r,0deg));transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s;box-shadow:0 6px 16px rgba(27,26,22,.05)}
   .pill:hover{transform:rotate(0deg) scale(1.05);box-shadow:0 10px 24px rgba(27,26,22,.10)}
   .pill.skill{background:rgba(178,74,49,.12);color:#6E2E1B}
@@ -398,15 +405,23 @@
         <div class="sk-line"><h4>Research&nbsp;—&nbsp;</h4><span>Discovery, User Research, User Interviews, Competitive Benchmarking, Funnel Analysis, UX Metrics Analysis, Usability Testing, Journey Mapping.</span></div>
         <div class="sk-line"><h4>Design &amp; Craft&nbsp;—&nbsp;</h4><span>Wireframes, Flows Diagram, Interactive Prototyping, UI Design, Visual Design, Hi-Fi Mockups, Design Systems, Motion Design.</span></div>
         <div class="sk-line"><h4>Domain&nbsp;—&nbsp;</h4><span>Game UX, IAP Flows, Monetisation UX, Systems Thinking.</span></div>
-        <div class="sk-line"><h4>Tools&nbsp;—&nbsp;</h4>
-          <div class="toolrow">
-            <span class="pill tool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8.6 2h3.4v6.7H8.6a3.35 3.35 0 1 1 0-6.7z"/><path d="M12 2h3.4a3.35 3.35 0 0 1 0 6.7H12V2z"/><circle cx="15.4" cy="12" r="3.35"/><path d="M8.6 8.7H12v6.6H8.6a3.3 3.3 0 1 1 0-6.6z"/><path d="M8.6 15.3H12v3.3a3.35 3.35 0 1 1-3.4-3.3z"/></svg>Figma</span>
-            <span class="pill tool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.7 3.3a2 2 0 0 1 2.8 0l1.2 1.2a2 2 0 0 1 0 2.8l-9.7 9.7-4.7 1.1 1.1-4.7 9.3-10.1z"/></svg>FigJam</span>
-            <span class="pill tool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M15.6 3.2 12.4 6l1.2-2.9L10.5 6l.9-3L8.3 6.4 6 20.8h3.3l1.7-9.3.7 9.3h3.1l2.1-10.7.5 10.7H21L18.7 3z"/></svg>Miro</span>
-            <span class="pill tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M3 12h18M5.6 5.6l12.8 12.8M18.4 5.6 5.6 18.4"/></svg>Claude</span>
-            <span class="pill tool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 2.4 18.7 9.3l-5.7 1.9-1.9 5.7z"/></svg>Cursor</span>
-            <span class="pill tool"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2c.4 3.7 1.2 5.4 2.9 7.1S18.3 11.6 22 12c-3.7.4-5.4 1.2-7.1 2.9S12.4 18.3 12 22c-.4-3.7-1.2-5.4-2.9-7.1S5.7 12.4 2 12c3.7-.4 5.4-1.2 7.1-2.9S11.6 5.7 12 2z"/></svg>Figma AI</span>
-            <span class="pill tool"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7.5 18h9a3.5 3.5 0 0 0 .4-6.98A5.5 5.5 0 0 0 6.3 9.8 3.2 3.2 0 0 0 7.5 18z"/><path d="M11 11.9v3l2.6-1.5z" fill="currentColor" stroke="none"/></svg>Playtest Cloud</span>
+        <div class="sk-line"><h4 style="display:block;margin-bottom:2px">Tools</h4>
+          <div class="tools-apps">
+
+            <div class="app"><div class="tile light"><svg width="22" height="33" viewBox="0 0 38 57" aria-hidden="true"><path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0Z"/><path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0Z"/><path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19Z"/><path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5Z"/><path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5Z"/></svg></div><span class="lbl">Figma</span></div>
+
+            <div class="app"><div class="tile light"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke-linecap="round" stroke-width="2.6" aria-hidden="true"><path d="M4.5 8.5c2.4-2 4.8 2 7.2 0" stroke="#ff5c57"/><path d="M5.4 13c2.4-2 5.4 2 7.8 0" stroke="#7b61ff"/><path d="M6.3 17.5c2.4-2 4.8 2 7.2 0" stroke="#0acf83"/><circle cx="18" cy="9.5" r="1.7" fill="#1abcfe" stroke="none"/></svg></div><span class="lbl">FigJam</span></div>
+
+            <div class="app"><div class="tile" style="background:#ffd02f"><svg width="30" height="30" viewBox="0 0 24 24" fill="#050038" aria-hidden="true"><path d="M15.6 3.4 12.5 6l1.1-2.6L10.6 6l.8-2.6L8.4 6.6 6 20.6h2.9l1.5-8.6.6 8.6h2.7l1.9-9.9.4 9.9h2.7L21 3z"/></svg></div><span class="lbl">Miro</span></div>
+
+            <div class="app"><div class="tile" style="background:#d97757"><svg width="30" height="30" viewBox="0 0 24 24" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M12 3v18M3 12h18M5.64 5.64l12.72 12.72M18.36 5.64 5.64 18.36M8.3 3.72l7.4 16.56M3.72 15.7l16.56-7.4M3.72 8.3l16.56 7.4M8.3 20.28l7.4-16.56"/></svg></div><span class="lbl">Claude</span></div>
+
+            <div class="app"><div class="tile light"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2 21 7 12 12 3 7z" fill="#5a5a5a"/><path d="M12 12 21 7v10l-9 5z" fill="#2f2f2f"/><path d="M12 12 3 7v10l9 5z" fill="#161616"/></svg></div><span class="lbl">Cursor</span></div>
+
+            <div class="app"><div class="tile light"><svg width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="fai" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#a259ff"/><stop offset="1" stop-color="#1abcfe"/></linearGradient></defs><path d="M13 2c.3 3 .9 4.3 2.3 5.7S18 9.7 21 10c-3 .3-4.3.9-5.7 2.3S13.3 15 13 18c-.3-3-.9-4.3-2.3-5.7S8 10.3 5 10c3-.3 4.3-.9 5.7-2.3S12.7 5 13 2z" fill="url(#fai)"/><path d="M6.5 14c.14 1.3.4 1.9 1 2.5S8.7 17.4 10 17.5c-1.3.14-1.9.4-2.5 1S6.6 20.2 6.5 21.5c-.14-1.3-.4-1.9-1-2.5S4 17.6 2.7 17.5c1.3-.14 1.9-.4 2.5-1S6.4 15.3 6.5 14z" fill="url(#fai)"/></svg></div><span class="lbl">Figma AI</span></div>
+
+            <div class="app"><div class="tile light"><svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18h10a3.6 3.6 0 0 0 .4-7.18A5.6 5.6 0 0 0 6 9.7 3.3 3.3 0 0 0 7 18z" fill="#3b82f6"/><path d="M10.6 11.9v3.4l3-1.7z" fill="#fff"/></svg></div><span class="lbl">Playtest Cloud</span></div>
+
           </div>
         </div>
       </div>
