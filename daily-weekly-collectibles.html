@@ -155,10 +155,13 @@
     document.documentElement.classList.add('js-anim');
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{rootMargin:'0px 0px -6% 0px',threshold:0.04});
     revs.forEach(function(e){io.observe(e);});
-    function safety(){var vh=window.innerHeight;revs.forEach(function(e){if(!e.classList.contains('in') && e.getBoundingClientRect().top<vh){e.classList.add('in');}});}
-    window.addEventListener('load',function(){setTimeout(safety,300);});
-    window.addEventListener('scroll',safety,{passive:true});
-    window.addEventListener('resize',safety);
+    function sweep(){var vh=window.innerHeight;revs.forEach(function(e){if(!e.classList.contains('in') && e.getBoundingClientRect().top<vh){e.classList.add('in');}});}
+    sweep();
+    window.addEventListener('scroll',sweep,{passive:true});
+    window.addEventListener('resize',sweep);
+    window.addEventListener('load',function(){setTimeout(sweep,150);});
+    setTimeout(sweep,300);
+    setTimeout(function(){revs.forEach(function(e){e.classList.add('in');});},1600);
   }
 })();
 </script>
