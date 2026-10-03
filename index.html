@@ -156,6 +156,15 @@
   .sk-line:first-child{border-top:0;padding-top:0}
   .sk-line h4{font-family:'Poppins',serif;font-weight:600;font-size:18px;display:inline;color:var(--ink)}
   .sk-line span{color:var(--ink-soft);font-size:16px;line-height:1.72}
+  /* two-column skills (heading left, bullets right) */
+  .sk2{margin-top:28px}
+  .sk2-row{display:grid;grid-template-columns:minmax(190px,290px) 1fr;gap:clamp(24px,5vw,56px);padding:clamp(26px,4vw,36px) 0;border-top:1px solid var(--line);align-items:start}
+  .sk2-row:first-child{border-top:0;padding-top:6px}
+  .sk2-row h3{font-family:'Poppins',sans-serif;font-weight:500;font-size:clamp(24px,3.2vw,34px);line-height:1.04;letter-spacing:-.02em;color:var(--ink)}
+  .sk2-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:11px 30px;padding-top:5px}
+  .sk2-list li{position:relative;padding-left:20px;font-size:15px;color:var(--ink-soft);line-height:1.4}
+  .sk2-list li::before{content:"";position:absolute;left:2px;top:8px;width:5px;height:5px;border-radius:50%;background:var(--line-strong)}
+  @media(max-width:760px){.sk2-row{grid-template-columns:1fr;gap:14px;padding:22px 0}.sk2-list{grid-template-columns:1fr}}
   .toolrow{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
   /* app-icon tiles */
   .tools-apps{display:flex;flex-wrap:wrap;gap:20px 22px;margin-top:16px}
@@ -424,11 +433,21 @@
 
       <p class="eyebrow reveal">Skills &amp; tools</p>
       <h2 class="cloud-title serif reveal">What I bring to the table</h2>
-      <div class="sklist reveal">
-        <div class="sk-line"><h4>Research&nbsp;—&nbsp;</h4><span>Discovery, User Research, User Interviews, Competitive Benchmarking, Funnel Analysis, UX Metrics Analysis, Usability Testing, Journey Mapping.</span></div>
-        <div class="sk-line"><h4>Design &amp; Craft&nbsp;—&nbsp;</h4><span>Wireframes, Flows Diagram, Interactive Prototyping, UI Design, Visual Design, Hi-Fi Mockups, Design Systems, Motion Design.</span></div>
-        <div class="sk-line"><h4>Domain&nbsp;—&nbsp;</h4><span>Game UX, IAP Flows, Monetisation UX, Systems Thinking.</span></div>
-        <div class="sk-line"><h4 style="display:block;margin-bottom:2px">Tools</h4>
+      <div class="sk2 reveal">
+        <div class="sk2-row">
+          <h3>Research &amp; Validation</h3>
+          <ul class="sk2-list"><li>Discovery</li><li>User Research</li><li>User Interviews</li><li>Usability Testing</li><li>Competitive Benchmarking</li><li>Funnel Analysis</li><li>UX Metrics Analysis</li><li>Journey Mapping</li></ul>
+        </div>
+        <div class="sk2-row">
+          <h3>Design &amp; Craft</h3>
+          <ul class="sk2-list"><li>Wireframes</li><li>Flows Diagram</li><li>Interactive Prototyping</li><li>UI Design</li><li>Visual Design</li><li>Hi-Fi Mockups</li><li>Design Systems</li><li>Motion Design</li></ul>
+        </div>
+        <div class="sk2-row">
+          <h3>Gameplay &amp; Systems UX</h3>
+          <ul class="sk2-list"><li>Game UX</li><li>IAP Flows</li><li>Monetisation UX</li><li>Systems Thinking</li></ul>
+        </div>
+        <div class="sk2-row">
+          <h3>Tools</h3>
           <div class="tools-apps">
 
             <div class="app"><div class="tile light"><svg width="22" height="33" viewBox="0 0 38 57" aria-hidden="true"><path fill="#1abcfe" d="M19 28.5a9.5 9.5 0 1 1 19 0 9.5 9.5 0 0 1-19 0Z"/><path fill="#0acf83" d="M0 47.5A9.5 9.5 0 0 1 9.5 38H19v9.5a9.5 9.5 0 1 1-19 0Z"/><path fill="#ff7262" d="M19 0v19h9.5a9.5 9.5 0 1 0 0-19H19Z"/><path fill="#f24e1e" d="M0 9.5A9.5 9.5 0 0 0 9.5 19H19V0H9.5A9.5 9.5 0 0 0 0 9.5Z"/><path fill="#a259ff" d="M0 28.5A9.5 9.5 0 0 0 9.5 38H19V19H9.5A9.5 9.5 0 0 0 0 28.5Z"/></svg></div><span class="lbl">Figma</span></div>
